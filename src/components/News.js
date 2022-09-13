@@ -31,7 +31,6 @@ export class News extends Component {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=42368fae79854c49a8df34d16447ea21&page=1&pageSize=${this.props.pageSize}`;
         let response = await fetch(url);
         let data = await response.json();
-        console.log(data);
         this.setState(
             {
                 articles: data.articles,
@@ -78,7 +77,7 @@ export class News extends Component {
                 <h2 className='text-center my-3'>NewsMonkey Top Headlines on {this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)}</h2>
                 {this.state.loading && <Spinner />}
                 <div className="row">
-                    {!this.state.loading && this.state.articles.map((element) => {
+                    {!this.state.loading && this.state.articles && this.state.articles.map((element) => {
                         return <div className="col col-md-4 my-2" key={element.url}>
                             <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                         </div>
