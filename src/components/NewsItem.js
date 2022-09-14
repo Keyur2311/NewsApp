@@ -5,11 +5,17 @@ export class NewsItem extends Component {
     render() {
         let { title, description, imageUrl, newsUrl, author, date, source } = this.props;
         return (
-            <div>
+            <div className='my-3'>
                 <div className="card">
-                    <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left: '85%', zIndex: '1' }}> {source ? source : "Unknown"}
-                    </span>
-
+                    <div style={{
+                        dispklay: 'flex',
+                        justifyContent: 'flex-end',
+                        right: '0',
+                        position: 'absolute',
+                    }}>
+                        <span className="badge rounded-pill bg-danger"> {source ? source : "Unknown"}
+                        </span>
+                    </div>
                     <img src={!imageUrl ? "https://resize.indiatvnews.com/en/resize/newbucket/715_-/2022/09/asteroid-1662981783.jpg" : imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title} ...</h5>

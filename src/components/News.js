@@ -34,7 +34,7 @@ export class News extends Component {
 
     async componentDidMount() {
         this.props.setProgress(10);
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=42368fae79854c49a8df34d16447ea21&page=1&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
         this.props.setProgress(30);
         let response = await fetch(url);
         let data = await response.json();
@@ -51,7 +51,7 @@ export class News extends Component {
 
     handlePrevClick = async () => {
         this.props.setProgress(10);
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=42368fae79854c49a8df34d16447ea21&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.props.setProgress(30);
         this.setState({ loading: true });
         let response = await fetch(url);
@@ -70,7 +70,7 @@ export class News extends Component {
         let currentPage = this.state.page + 1;
         if (currentPage <= totalPages) {
             this.props.setProgress(10);
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=42368fae79854c49a8df34d16447ea21&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             this.props.setProgress(30);
             this.setState({ loading: true });
             let response = await fetch(url);
