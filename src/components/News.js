@@ -29,8 +29,8 @@ const News = (props) => {
             props.setProgress(100);
         }
         updateData();
-        //eslint-disable-next-line
 
+        // eslint-disable-next-line
     }, [])
 
     const handlePrevClick = async () => {
